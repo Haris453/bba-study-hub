@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b25">
+  <meta name="description" content="Explore BBA assignments, chapter notes, study resources and downloadable PDFs in one place.">
+  <title>BBA Study Hub | Learn Smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .announcement {
+      padding: 10px 16px;
+      text-align: center;
+      background: #102b25;
+      color: #d9fff2;
+      font-size: 12px;
+      letter-spacing: .3px;
+    }
+
+    .announcement span { color: #79e8c7; font-weight: 800; }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      font-family: Manrope, sans-serif;
+      font-weight: 800;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 440px;
+    }
+
+    .hero-copy { position: relative; z-index: 2; }
+
+    .hero h1 { max-width: 650px; }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn-outline {
+      margin-top: 16px;
+      border: 1px solid #ffffff55;
+      color: white;
+      background: #ffffff0d;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 26px;
+      margin-top: 32px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: #fff;
+      font: 800 22px Manrope, sans-serif;
+    }
+
+    .hero-stat span {
+      color: #c4ded8;
+      font-size: 11px;
+    }
+
+    .hero-art {
+      flex-shrink: 0;
+      margin-right: 3%;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      width: 290px;
+      height: 290px;
+      border: 1px solid #ffffff28;
+      border-radius: 50%;
+      top: -15px;
+      left: 10px;
+      pointer-events: none;
+    }
+
+    .hero-orbit::before,
+    .hero-orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid #ffffff1c;
+      border-radius: 50%;
+      inset: 20px;
+    }
+
+    .hero-orbit::after { inset: 43px; }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      color: #178573;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: #20b99b;
+    }
+
+    .section-head h2 { letter-spacing: -1px; }
+
+    .library-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 7px 11px;
+      border-radius: 30px;
+      background: #e0f7ee;
+      color: #176d5b;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .feature-card {
+      padding: 24px;
+      border: 1px solid #e3eee9;
+      border-radius: 18px;
+      background: rgba(255,255,255,.85);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: #b5e9d9;
+      box-shadow: 0 18px 38px #143c3010;
+    }
+
+    .feature-card .feature-symbol {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 17px;
+      border-radius: 15px;
+      background: #e4f7ef;
+      color: #176d65;
+      font-size: 23px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 9px;
+      font: 800 16px Manrope, sans-serif;
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .library-banner {
+      position: relative;
+      overflow: hidden;
+      padding: 38px;
+      border-radius: 23px;
+      background: linear-gradient(115deg, #153b35, #176d65);
+      color: white;
+    }
+
+    .library-banner::after {
+      content: "BBA";
+      position: absolute;
+      right: 20px;
+      bottom: -40px;
+      color: #ffffff09;
+      font: 800 130px Manrope, sans-serif;
+      pointer-events: none;
+    }
+
+    .library-banner h2 {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      color: white;
+    }
+
+    .library-banner p {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      color: #d4e8e1;
+    }
+
+    .library-banner .btn { position: relative; z-index: 1; }
+
+    .about-section {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    .about-section h2 { line-height: 1.25; }
+
+    .about-points {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .about-points span {
+      padding: 10px 14px;
+      border: 1px solid #deeee7;
+      border-radius: 30px;
+      background: white;
+      color: #3e655a;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-top: 18px;
+      border-top: 1px solid #e8edf0;
+    }
+
+    .footer-note {
+      color: #819087;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .resource-grid:empty { display: none; }
+
+    @media (max-width: 800px) {
+      .hero { gap: 10px; }
+      .hero-art { display: block; transform: scale(.8); transform-origin: center right; margin-right: -25px; }
+      .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .announcement { font-size: 10px; }
+      .hero-art { display: none; }
+      .hero-stats { gap: 20px; }
+      .hero-stat strong { font-size: 19px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .library-banner { padding: 26px; }
+      .library-banner::after { font-size: 85px; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    YOUR LEARNING JOURNEY STARTS HERE &nbsp; <span>✦</span> &nbsp; Study smarter with BBA Study Hub
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="BBA Study Hub home">
+      <span class="brand-mark">B</span>
+      <span>BBA Study Hub<small>Learn smarter, every day</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav id="siteNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#resources">Library</a>
+      <a href="#assignments">Why Study Hub</a>
+      <a href="#about">About</a>
+      <a href="login.html">Admin Login ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">✦ YOUR PERSONAL LEARNING SPACE</span>
+
+        <h1>Learn better.<br>Achieve <em>more.</em></h1>
+
+        <p>
+          Your study journey, all in one place. Explore BBA assignments,
+          chapter notes, helpful articles and downloadable PDF resources
+          whenever you need them.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-light" href="#resources">Explore the library <span>→</span></a>
+          <a class="btn btn-outline" href="#about">Discover our hub ↗</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>Learn</strong>
+            <span>At your own pace</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Explore</strong>
+            <span>Organized resources</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Grow</strong>
+            <span>One day at a time</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-orbit"></div>
+        <div class="book book-back"></div>
+        <div class="book book-front">
+          <div class="book-label">YOUR<br><b>BBA<br>STUDY<br>HUB</b></div>
+          <div class="book-lines"></div>
+        </div>
+        <div class="float-note">✦ Keep learning</div>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Your digital library</span>
+          <h2>Explore study resources</h2>
+          <p>Find the material you need and keep your learning organized.</p>
+        </div>
+
+        <div class="filter-wrap">
+          <input id="searchInput" type="search" placeholder="⌕ Search resources..." aria-label="Search study resources">
+          <select id="categoryFilter" aria-label="Filter by category">
+            <option value="all">All categories</option>
+            <option>Assignments</option>
+            <option>Articles &amp; Notes</option>
+            <option>Chapters</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="library-label">✦ Latest publications</div>
+      <div id="resourceGrid" class="resource-grid" aria-live="polite">
+        <div class="resource-message">Loading study resources...</div>
+      </div>
+      <div id="emptyState" class="empty-state" hidden>
+        No resources match your search. Try another keyword.
+      </div>
+    </section>
+
+    <section class="section" id="assignments">
+      <span class="section-kicker">Designed for your growth</span>
+      <h2>Everything you need to study smarter.</h2>
+      <p>Simple tools to help you discover and organize learning materials.</p>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-symbol">✎</div>
+          <h3>Assignments</h3>
+          <p>Find assignment resources and supporting materials in one organized library.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-symbol">▤</div>
+          <h3>Chapter Notes</h3>
+          <p>Browse chapter resources and PDF notes published for your studies.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-symbol">↗</div>
+          <h3>Easy Access</h3>
+          <p>Search by keyword or filter by category to find the right resource quickly.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="library-banner">
+        <span class="eyebrow">YOUR NEXT STEP STARTS TODAY</span>
+        <h2>Make every study session count.</h2>
+        <p>
+          Explore the latest published materials, discover useful notes
+          and keep moving toward your academic goals.
+        </p>
+        <a class="btn btn-light" href="#resources">Browse study resources →</a>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <span class="section-kicker">About BBA Study Hub</span>
+      <h2>A focused space for curious minds.</h2>
+      <p>
+        BBA Study Hub brings learning resources together in one convenient
+        place. Our goal is to make study materials easier to discover,
+        access and organize.
+      </p>
+
+      <div class="about-points">
+        <span>✓ Organized resources</span>
+        <span>✓ Searchable library</span>
+        <span>✓ PDF study materials</span>
+        <span>✓ Student-focused design</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-mark">B</span>
+        <span>BBA Study Hub<small>Learn smarter, every day</small></span>
+      </a>
+
+      <div>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        &nbsp;&nbsp;
+        <a href="disclaimer.html">Disclaimer</a>
+      </div>
+
+      <small>© <span id="year"></span> BBA Study Hub</small>
+    </div>
+
+    <p class="footer-note">
+      Study materials are provided for learning purposes. Please follow
+      your institution's academic rules when using resources.
+    </p>
+  </footer>
+
+  <script src="site.js"></script>
+  <script>
+    const menuButton = document.getElementById("menuToggle");
+    const nav = document.getElementById("siteNav");
+
+    menuButton?.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+  </script>
+</body>
+</html>
